@@ -5,7 +5,9 @@ app.use(express.json());
 
 import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
 import {OnedriverInfo,AlldriverInfo } from './drivers.js';
-import {IrbidInfo,Irbid_ghor,Irbid_Oldghor,Irbid_amman,Irbid_khalil,Irbid_shamal} from './irbid.js';
+import {IrbidInfo} from './irbid.js';
+import {ammanInfo} from './amman.js';
+import { Addreport } from './report.js';
 
 
 
@@ -32,8 +34,9 @@ async function run() {
     const database = client.db("Transpoition")
     const collection = database.collection("drivers");
     const collection2 = database.collection("Irbid");
-    const collection3 = database.collection("Amman");
-
+    const collection3 = database.collection("amman");
+    const collection4 = database.collection("report");  
+    
 
     // -----------------------------------------------------------------------------
     // drivers section below
@@ -65,25 +68,13 @@ async function run() {
   console.log(error.message)
       }
     })
-    // -----------------------------------------------------------------------------
-    
-
-    // -----------------------------------------------------------------------------
-    // Irbid section below
-    // -----------------------------------------------------------------------------
+  
 
     IrbidInfo(app,collection2) //  to show all the points in irbid
-    Irbid_ghor(app,collection2,new ObjectId("66ceb2e09d6c9212f0872367")) // to show all points of ghor in irbid
-    Irbid_amman(app,collection2,new ObjectId("66cef55dab8174b03b3ab744")) // to show the point of amman in irbid
-    Irbid_khalil(app,collection2,new ObjectId("66cef56bab8174b03b3ab745"))  // to show the point of khalil in irbid
-    Irbid_shamal(app,collection2,new ObjectId("66cef536ab8174b03b3ab742"))  // to show the point of shamal in irbid
-    Irbid_Oldghor(app,collection2,new ObjectId("66cef54aab8174b03b3ab743")) // to show the point of old ghor in irbid
-    // -----------------------------------------------------------------------------
-    // -----------------------------------------------------------------------------
-
-    // -----------------------------------------------------------------------------
-    // Amman section below
-    // -----------------------------------------------------------------------------
+    ammanInfo(app,collection3) // to show all the points in amman
+    Addreport(app,collection4) // to add a report to the database
+    
+    
 
 
     
