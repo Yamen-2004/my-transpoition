@@ -8,6 +8,16 @@ import {OnedriverInfo,AlldriverInfo } from './drivers.js';
 import {IrbidInfo} from './irbid.js';
 import {ammanInfo} from './amman.js';
 import { Addreport } from './report.js';
+import { jarashInfo } from './jarash.js';
+import { zarqaainfo } from './zarqaa.js';
+import { mafraqInfo } from './mafraq.js';
+import { balqaainfo } from './balqaa.js';
+import { karakInfo } from './karak.js';
+import { tafilehInfo } from './tafileh.js';
+import { aqabaInfo } from './aqaba.js';
+import { madabainfo } from './madaba.js';
+import { maanInfo } from './maan.js';
+import { ajlouninfo } from './ajloun.js';
 
 
 
@@ -36,6 +46,17 @@ async function run() {
     const collection2 = database.collection("Irbid");
     const collection3 = database.collection("amman");
     const collection4 = database.collection("report");  
+    const collection5 = database.collection("jarash");
+    const collection6 = database.collection("zarqaa");
+    const collection7 = database.collection("madaba");
+    const collection8 = database.collection("ajloun");
+    const collection9 = database.collection("maan");
+    const collection10 = database.collection("aqaba");
+    const collection11 = database.collection("tafelih");
+    const collection12 = database.collection("karak");
+    const collection13 = database.collection("balqaa");
+    const collection14 = database.collection("mafraq");
+
     
 
     // -----------------------------------------------------------------------------
@@ -72,7 +93,28 @@ async function run() {
 
     IrbidInfo(app,collection2) //  to show all the points in irbid
     ammanInfo(app,collection3) // to show all the points in amman
+    jarashInfo(app,collection5) // to show all the points in jarash
+    zarqaainfo(app,collection6) // to show all the points in zarqaa
+    madabainfo(app,collection7) // to show all the points in zarqaa
+    ajlouninfo(app,collection8) // to show all the points in zarqaa
+    maanInfo(app,collection9) // to show all the points in zarqaa
+    aqabaInfo(app,collection10) // to show all the points in zarqaa
+    tafilehInfo(app,collection11) // to show all the points in zarqaa
+    karakInfo(app,collection12) // to show all the points in zarqaa
+    balqaainfo(app,collection13) // to show all the points in zarqaa
+    mafraqInfo(app,collection14) // to show all the points in zarqaa
+
+
+
+
+
+
+
+
+
+
     Addreport(app,collection4) // to add a report to the database
+
     
     
 
